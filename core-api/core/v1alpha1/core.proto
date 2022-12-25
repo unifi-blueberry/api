@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package core.v1alpha1;
+
+// PlatformInfo contains details about the UniFi platform under management
+message PlatformInfo {
+  string name = 1;
+}
+
+message GetPlatformInfoRequest {}
+
+message GetPlatformInfoResponse {
+  repeated PlatformInfo platform = 1;
+}
+
+service CoreService {
+  rpc GetPlatformInfo(GetPlatformInfoRequest) returns (GetPlatformInfoResponse) {}
+}

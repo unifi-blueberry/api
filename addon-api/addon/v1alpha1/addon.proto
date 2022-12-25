@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package addon.v1alpha1;
+
+// Addon represents a system customization managed by UniFi Blueberry.
+message Addon {
+  string name = 1;
+}
+
+message ListAddonsRequest {}
+
+message ListAddonsResponse {
+  repeated Addon addons = 1;
+}
+
+service AddonService {
+  rpc ListAddons(ListAddonsRequest) returns (ListAddonsResponse) {}
+}
