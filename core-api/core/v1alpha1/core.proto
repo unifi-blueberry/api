@@ -4,13 +4,22 @@ package core.v1alpha1;
 
 // PlatformInfo contains details about the UniFi platform under management
 message PlatformInfo {
-  string name = 1;
+  string subsystem_id = 1;
+  string model = 2;
+  string model_short = 3;
+  string family = 4;
+  string family_short = 5;
+  string firmware = 6;
+  string firmware_detail = 7;
+  string firmware_discovery = 8;
+  string ipv4 = 9;
+  string mac = 10;
 }
 
 message GetPlatformInfoRequest {}
 
 message GetPlatformInfoResponse {
-  repeated PlatformInfo platform = 1;
+  PlatformInfo platform = 1;
 }
 
 service CoreService {
