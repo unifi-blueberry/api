@@ -18,10 +18,6 @@ message PlatformInfo {
 
 message GetPlatformInfoRequest {}
 
-message GetPlatformInfoResponse {
-  PlatformInfo platform = 1;
-}
-
 service CoreService {
-  rpc GetPlatformInfo(GetPlatformInfoRequest) returns (GetPlatformInfoResponse) {}
+  rpc GetPlatformInfo(GetPlatformInfoRequest) returns (PlatformInfo) {}
 }
