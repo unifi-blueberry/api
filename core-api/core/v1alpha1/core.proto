@@ -2,6 +2,17 @@ syntax = "proto3";
 
 package core.v1alpha1;
 
+// GerVersionInfoRequest
+message GetVersionInfoRequest {}
+
+// GetVersionInfoResponse contains build time version information from the core daemon
+message GetVersionInfoResponse {
+  string version = 1;
+  string platform = 2;
+  string git_commit = 3;
+  string go_version = 4;
+}
+
 // BlueberryPlatformInfo contains details about the UniFi Blueberry installation
 message BlueberryPlatformInfo {
   string version = 1;
@@ -29,5 +40,6 @@ message GetPlatformInfoResponse {
 }
 
 service CoreService {
+  rpc GetVersionInfo(GetVersionInfoRequest) returns (GetVersionInfoResponse) {}
   rpc GetPlatformInfo(GetPlatformInfoRequest) returns (GetPlatformInfoResponse) {}
 }
